@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use App\Http\Controllers\Controller;
@@ -14,7 +15,9 @@ class ConversionController extends Controller
             ]);
 
             $kilometers = $request->quilometros;
-            $lightYears = $kilometers / 9.461e12;
+            $lightYears = $kilometers / 9460730472580.8;
+
+            $lightYears = round($lightYears, 4);
 
             return response()->json([
                 'anosLuz' => $lightYears
@@ -23,7 +26,7 @@ class ConversionController extends Controller
             return response()->json([
                 'message' => $e->getMessage(),
                 'errors' => $e->errors(),
-            ], 400); // Aqui você força a resposta 400
+            ], 400);
         }
     }
 
@@ -35,7 +38,9 @@ class ConversionController extends Controller
             ]);
 
             $lightYears = $request->anosLuz;
-            $kilometers = $lightYears * 9.461e12;
+            $kilometers = $lightYears * 9460730472580.8;
+
+            $kilometers = round($kilometers, 4);
 
             return response()->json([
                 'quilometros' => $kilometers
@@ -44,7 +49,7 @@ class ConversionController extends Controller
             return response()->json([
                 'message' => $e->getMessage(),
                 'errors' => $e->errors(),
-            ], 400); // Aqui você força a resposta 400
+            ], 400);
         }
     }
 }
