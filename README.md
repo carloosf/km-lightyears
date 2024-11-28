@@ -1,5 +1,3 @@
-Aqui está o **README.md** atualizado com informações sobre os testes:
-
 ---
 
 # Laravel Space Converter API
