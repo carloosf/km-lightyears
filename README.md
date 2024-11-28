@@ -1,6 +1,6 @@
 ---
 
-# Laravel Space Converter API
+# KM to Lightyears
 
 Este projeto é uma API simples desenvolvida com Laravel para realizar a conversão de **quilômetros (KM)** para **anos-luz** e vice-versa.
 
